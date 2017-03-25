@@ -43,6 +43,7 @@ FS_SLC_READ1 equ 0x107B998C
 FS_SLC_READ2 equ 0x107B98FC
 FS_SLC_WRITE1 equ 0x107B9870
 FS_SLC_WRITE2 equ 0x107B97E4
+FS_SLC_ECC_CHECK equ 0x107BAD38
 FS_SLC_HANDLEMESSAGE equ 0x107B9DE4
 FS_MLC_READ1 equ 0x107DC760
 FS_MLC_READ2 equ 0x107DCDE4
@@ -85,6 +86,8 @@ FS_REGISTERMDPHYSICALDEVICE equ 0x10718860
 		b slcWrite1_patch
 	.org FS_SLC_WRITE2
 		b slcWrite2_patch
+    .org FS_SLC_ECC_CHECK
+        b eccCheck_patch
 	.org 0x107206F0
 		mov r0, #0 ; nop out hmac memcmp
 ; mlc redirection
