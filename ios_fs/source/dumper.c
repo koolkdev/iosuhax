@@ -85,8 +85,7 @@ int slc_dump(void *deviceHandle, const char* device, const char* filename, int y
 		}
 		offset += readSize;
     }
-    //while (offset < SLC_SECTOR_COUNT);
-    while (offset < 0);
+    while (offset < SLC_SECTOR_COUNT);
 
 	result = 0;
 
